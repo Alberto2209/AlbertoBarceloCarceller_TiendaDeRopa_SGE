@@ -1,0 +1,75 @@
+
+
+<odoo>
+
+    <!-- Vista LIST -->
+    <record id="view_venta_list" model="ir.ui.view">
+        <field name="name">streetzone.venta.list</field>
+        <field name="model">streetzone.venta</field>
+        <field name="arch" type="xml">
+            <list string="Lista de ventas">
+                <field name="nombre"/>
+                <field name="fecha"/>
+                <field name="empleado_ventas"/>
+                <field name="producto_ventas"/>
+                <field name="cantidad"/>
+                <field name="importe_total"/>
+                <field name="metodo_pago"/>
+                <field name="estado"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista FORM -->
+    <record id="view_venta_form" model="ir.ui.view">
+        <field name="name">streetzone.venta.form</field>
+        <field name="model">streetzone.venta</field>
+        <field name="arch" type="xml">
+            <form string="Ficha de la venta">
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="fecha"/>
+                        <field name="empleado_ventas"/>
+                        <field name="producto_ventas"/>
+                        <field name="cantidad"/>
+                        <field name="importe_total" readonly="1"/>
+                        <field name="metodo_pago"/>
+                        <field name="estado"/>
+                        <field name="observaciones"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista SEARCH -->
+    <record id="view_venta_search" model="ir.ui.view">
+        <field name="name">streetzone.venta.search</field>
+        <field name="model">streetzone.venta</field>
+        <field name="arch" type="xml">
+            <search string="Buscar ventas">
+                <field name="nombre"/>
+                <field name="empleado_ventas"/>
+                <field name="producto_ventas"/>
+                <field name="estado"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción que enlaza las vistas -->
+    <record id="action_venta" model="ir.actions.act_window">
+        <field name="name">Ventas</field>
+        <field name="res_model">streetzone.venta</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_venta_list"/>
+        <field name="search_view_id" ref="view_venta_search"/>
+    </record>
+
+    <!-- Menú de ventas -->
+    <menuitem id="menu_venta"
+              name="Ventas"
+              parent="menu_streetzone_root"
+              action="action_venta"/>
+
+</odoo>

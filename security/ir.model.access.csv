@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_streetzone_producto,streetzone.producto,model_streetzone_producto,base.group_user,1,1,1,1
+access_streetzone_empleado,streetzone.empleado,model_streetzone_empleado,base.group_user,1,1,1,1
+access_streetzone_venta,streetzone.venta,model_streetzone_venta,base.group_user,1,1,1,1

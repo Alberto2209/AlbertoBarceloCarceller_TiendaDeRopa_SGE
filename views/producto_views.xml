@@ -1,0 +1,80 @@
+
+<odoo>
+
+    <!-- Vista LIST -->
+    <record id="view_producto_list" model="ir.ui.view">
+        <field name="name">streetzone.producto.list</field>
+        <field name="model">streetzone.producto</field>
+        <field name="arch" type="xml">
+            <list string="Lista de productos">
+                <field name="nombre"/>
+                <field name="categoria"/>
+                <field name="talla"/>
+                <field name="color"/>
+                <field name="precio"/>
+                <field name="stock"/>
+                <field name="valor_stock"/>
+                <field name="disponibilidad"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista FORM -->
+    <record id="view_producto_form" model="ir.ui.view">
+        <field name="name">streetzone.producto.form</field>
+        <field name="model">streetzone.producto</field>
+        <field name="arch" type="xml">
+            <form string="Ficha del producto">
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="categoria"/>
+                        <field name="talla"/>
+                        <field name="color"/>
+                        <field name="precio"/>
+                        <field name="stock"/>
+                        <field name="valor_stock"/>
+                        <field name="disponibilidad"/>
+                        <field name="fecha_anadido"/>
+                        <field name="ultima_actualizacion"/>
+                        <field name="descripcion"/>
+                        <field name="imagen" widget="image"/>
+                        <field name="empleados_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista SEARCH -->
+    <record id="view_producto_search" model="ir.ui.view">
+        <field name="name">streetzone.producto.search</field>
+        <field name="model">streetzone.producto</field>
+        <field name="arch" type="xml">
+            <search string="Buscar productos">
+                <field name="nombre"/>
+                <field name="categoria"/>
+                <field name="color"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción que enlaza las vistas -->
+    <record id="action_producto" model="ir.actions.act_window">
+        <field name="name">Productos</field>
+        <field name="res_model">streetzone.producto</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_producto_list"/>
+        <field name="search_view_id" ref="view_producto_search"/>
+    </record>
+
+    <menuitem id="menu_streetzone_root"
+            name="StreetZone"
+            sequence="10"/>
+
+    <menuitem id="menu_producto"
+              name="Productos"
+              parent="menu_streetzone_root"
+              action="action_producto"/>
+
+</odoo>
