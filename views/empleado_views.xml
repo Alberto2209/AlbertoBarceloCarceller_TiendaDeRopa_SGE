@@ -1,4 +1,3 @@
-
 <odoo>
 
     <!-- Vista LIST -->
@@ -7,6 +6,7 @@
         <field name="model">streetzone.empleado</field>
         <field name="arch" type="xml">
             <list string="Lista de empleados">
+                <!-- Cada field es un apartado de la tabla -->
                 <field name="nombre"/>
                 <field name="apellidos"/>
                 <field name="dni"/>
@@ -26,6 +26,8 @@
         <field name="arch" type="xml">
             <form string="Ficha del empleado">
                 <sheet>
+                    <!-- sheet es la zona donde va todo -->
+                     <!-- group ordena los campos  -->
                     <group>
                         <field name="nombre"/>
                         <field name="apellidos"/>
@@ -58,7 +60,7 @@
         </field>
     </record>
 
-    <!-- Acción que enlaza las vistas -->
+    <!-- Acción: junta las vistas -->
     <record id="action_empleado" model="ir.actions.act_window">
         <field name="name">Empleados</field>
         <field name="res_model">streetzone.empleado</field>
@@ -67,7 +69,7 @@
         <field name="search_view_id" ref="view_empleado_search"/>
     </record>
 
-    <!-- Menú de empleados -->
+    <!-- Submenú de Empleadosr -->
     <menuitem id="menu_empleado"
               name="Empleados"
               parent="menu_streetzone_root"

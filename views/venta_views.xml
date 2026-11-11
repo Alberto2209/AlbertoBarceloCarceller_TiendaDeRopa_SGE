@@ -1,5 +1,3 @@
-
-
 <odoo>
 
     <!-- Vista LIST -->
@@ -8,6 +6,7 @@
         <field name="model">streetzone.venta</field>
         <field name="arch" type="xml">
             <list string="Lista de ventas">
+                <!-- Cada field es un apartado de la tabla -->
                 <field name="nombre"/>
                 <field name="fecha"/>
                 <field name="empleado_ventas"/>
@@ -27,12 +26,15 @@
         <field name="arch" type="xml">
             <form string="Ficha de la venta">
                 <sheet>
+                    <!-- sheet es la zona donde va todo -->
+                     <!-- group ordena los campos  -->
                     <group>
                         <field name="nombre"/>
                         <field name="fecha"/>
                         <field name="empleado_ventas"/>
                         <field name="producto_ventas"/>
                         <field name="cantidad"/>
+                        <!-- readonly: se ve pero no se puede editar -->
                         <field name="importe_total" readonly="1"/>
                         <field name="metodo_pago"/>
                         <field name="estado"/>
@@ -57,7 +59,7 @@
         </field>
     </record>
 
-    <!-- Acción que enlaza las vistas -->
+    <!-- Acción: junta las vistas -->
     <record id="action_venta" model="ir.actions.act_window">
         <field name="name">Ventas</field>
         <field name="res_model">streetzone.venta</field>
@@ -66,7 +68,7 @@
         <field name="search_view_id" ref="view_venta_search"/>
     </record>
 
-    <!-- Menú de ventas -->
+    <!-- Submenú de Ventas -->
     <menuitem id="menu_venta"
               name="Ventas"
               parent="menu_streetzone_root"
